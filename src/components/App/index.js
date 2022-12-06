@@ -16,7 +16,7 @@ function App() {
   // Fetching shopping list data from shopping list API.
   useEffect(() => {
     async function getShoppingList() {
-      const response = await fetch(`${url}/items`);
+      const response = await fetch("https://backendfirst.onrender.com/items");
       const data = await response.json(response);
       console.log(data);
       setList(data.payload);
@@ -31,7 +31,7 @@ function App() {
       completed: false,
     };
 
-    const response = await fetch("https://backendfirst.onrender.com/items", {
+    const response = await fetch(, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ listItem: listItemWithoutId }),
