@@ -50,15 +50,15 @@ function App() {
   }
 
   async function clearList() {
-    // await fetch(`${url}/items`, {
-    //   method: "DELETE",
-    // });
-    console.log(data);
-    const clearedList = [];
-    setList(clearedList);
-    // const response = await fetch(`${url}/items`);
-    // const data = await response.json(response);
-    // setList(data.payload);
+    await fetch(`${url}/items`, {
+      method: "DELETE",
+    });
+    // console.log(data);
+    // const clearedList = [];
+    // setList(clearedList);
+    const response = await fetch(`${url}/items`);
+    const data = await response.json(response);
+    setList(data.payload);
   }
 
   function tickItem(idOfTickedItem) {
