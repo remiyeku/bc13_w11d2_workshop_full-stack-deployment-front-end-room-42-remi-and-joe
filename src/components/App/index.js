@@ -8,7 +8,7 @@ and clear all of the items in a list.
 2. In order for the components to interact with one another, some functionality will need to be hoisted into the App component
  */
 
-const url = process.env.REACT_APP_BACKEND_URL;
+//const url = process.env.REACT_APP_BACKEND_URL;
 //?? "http://localhost:3000";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   // Fetching shopping list data from shopping list API.
   useEffect(() => {
     async function getShoppingList() {
-      const response = await fetch(`${url}/items`);
+      const response = await fetch("https://backendfirst.onrender.com/items");
       const data = await response.json(response);
       console.log(data);
       setList(data.payload);
@@ -32,7 +32,7 @@ function App() {
       completed: false,
     };
 
-    const response = await fetch(`${url}/items`, {
+    const response = await fetch("https://backendfirst.onrender.com/items", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ listItem: listItemWithoutId }),
