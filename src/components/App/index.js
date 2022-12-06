@@ -8,7 +8,7 @@ and clear all of the items in a list.
 2. In order for the components to interact with one another, some functionality will need to be hoisted into the App component
  */
 
-const url = process.env.REACT_APP_BACKEND_URL 
+const url = process.env.REACT_APP_BACKEND_URL;
 //?? "http://localhost:3000";
 
 function App() {
@@ -49,10 +49,16 @@ function App() {
     setList((previous) => [...previous, listItemWithId]);
   }
 
-  function clearList() {
-    //This function clears all the items that have been added to the list.
-    const clearedList = [];
-    setList(clearedList);
+  async function clearList() {
+    await fetch(`${url}/items`, {
+      method: "DELETE",
+    });
+    //console.log(data);
+    // const clearedList = [];
+    // setList(clearedList);
+    const response = await fetch(`${url}/items`);
+    const data = await response.json(response);
+    setList(data.payload);
   }
 
   function tickItem(idOfTickedItem) {
