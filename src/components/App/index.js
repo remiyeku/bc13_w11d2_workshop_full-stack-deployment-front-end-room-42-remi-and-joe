@@ -9,6 +9,7 @@ and clear all of the items in a list.
  */
 
 const url = process.env.REACT_APP_BACKEND_URL;
+
 function App() {
   const [list, setList] = useState([]);
 
