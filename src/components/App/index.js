@@ -50,14 +50,14 @@ function App() {
   }
 
   async function clearList() {
-    // await fetch(`${url}/items`, {
-    //   method: "DELETE",
-    // });
-    const clearedList = [];
-    setList(clearedList);
-    // const response = await fetch(`${url}/items`);
-    // const data = await response.json(response);
-    // setList(data.payload);
+    await fetch("https://backendfirst.onrender.com/items", {
+      method: "DELETE",
+    });
+    // const clearedList = [];
+    // setList(clearedList);
+    const response = await fetch("https://backendfirst.onrender.com/items");
+    const data = await response.json(response);
+    setList(data.payload);
   }
 
   function tickItem(idOfTickedItem) {
