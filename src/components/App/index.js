@@ -9,7 +9,6 @@ and clear all of the items in a list.
  */
 
 const url = process.env.REACT_APP_BACKEND_URL;
-
 function App() {
   const [list, setList] = useState([]);
 
@@ -31,7 +30,7 @@ function App() {
       completed: false,
     };
 
-    const response = await fetch(, {
+    const response = await fetch("https://backendfirst.onrender.com/items", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ listItem: listItemWithoutId }),
